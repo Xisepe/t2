@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: practice_db
+    ports:
+      - "${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - practice:/var/lib/postgresql/data
+volumes:
+  practice:
+
